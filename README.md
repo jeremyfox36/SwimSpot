@@ -1,2 +1,2 @@
 # SwimSpot
-An app to record stuff about open water swimming spots.
+An api to record stuff about open water swimming spots.
