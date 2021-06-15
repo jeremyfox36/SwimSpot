@@ -12,6 +12,7 @@ namespace SwimSpot.Api.Models
         void DeleteSwimmingSpotComment(int swimmingSpotCommentId);
         IEnumerable<SwimmingSpotComment> GetAllSwimmingSpotCommentsBySwimmingSpotId(int swimmingSpotId);
         SwimmingSpotComment GetSwimmingSpotCommentById(int swimmingSpotCommentId);
+        void ApproveSwimmingSpotComment(int swimmingSpotCommentId);
 
 
     }
