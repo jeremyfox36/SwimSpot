@@ -9,6 +9,7 @@ namespace SwimSpot.Shared
     public class SwimmingSpotComment
     {
         public int SwimmingSpotCommentId { get; set; }
+        [Required]
         public int SwimmingSpotId { get; set; }
     
         public string Content { get; set; }
@@ -18,6 +19,8 @@ namespace SwimSpot.Shared
         [Required]
         public DateTime SwimDate { get; set; }
         public int UserId { get; set; }
+        [Required]
+        public string UserName { get; set; }
 
 
     }
