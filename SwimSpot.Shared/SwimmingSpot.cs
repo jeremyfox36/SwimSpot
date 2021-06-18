@@ -7,7 +7,8 @@ namespace SwimSpot.Shared
     public class SwimmingSpot
     {
         public int SwimmingSpotId{ get; set; }
-
+        [Required]
+        public string SwimmingSpotName { get; set; }
         [Required]
         [Column(TypeName = "decimal(17, 15)")]
         public decimal Latitude { get; set; }

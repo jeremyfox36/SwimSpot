@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SwimSpot.Api.Models;
 
 namespace SwimSpot.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210616135123_addsApprovedToSwimmingSpotCommentModel")]
+    partial class addsApprovedToSwimmingSpotCommentModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,10 +34,6 @@ namespace SwimSpot.Api.Migrations
                     b.Property<decimal>("Longitude")
                         .HasColumnType("decimal(17,15)");
 
-                    b.Property<string>("SwimmingSpotName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("SwimmingSpotId");
 
                     b.ToTable("SwimmingSpots");
@@ -45,15 +43,13 @@ namespace SwimSpot.Api.Migrations
                         {
                             SwimmingSpotId = 1,
                             Latitude = 55.6455217723385m,
-                            Longitude = -2.9060585301065363m,
-                            SwimmingSpotName = "Gladhouse Reservoir"
+                            Longitude = -2.9060585301065363m
                         },
                         new
                         {
                             SwimmingSpotId = 2,
                             Latitude = 55.77398808982048m,
-                            Longitude = -3.1221541644140895m,
-                            SwimmingSpotName = "Stantling Craigs"
+                            Longitude = -3.1221541644140895m
                         });
                 });
 
