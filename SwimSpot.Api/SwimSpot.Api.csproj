@@ -19,5 +19,9 @@
     <ProjectReference Include="..\SwimSpot.Shared\SwimSpot.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 
 </Project>
