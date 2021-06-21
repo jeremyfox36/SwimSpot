@@ -14,6 +14,5 @@ namespace SwimSpot.Api.Models
         SwimmingSpotComment GetSwimmingSpotCommentById(int swimmingSpotCommentId);
         void ApproveSwimmingSpotComment(int swimmingSpotCommentId);
 
-
     }
 }
