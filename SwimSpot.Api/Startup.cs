@@ -27,7 +27,8 @@ namespace SwimSpot.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            string domain = $"https://{Configuration["Auth0:Domain"]}/";
+            string domain = "dev - 03mn04iq.eu.auth0.com";//$"https://{Configuration["Auth0:Domain"]}/";
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -35,7 +36,7 @@ namespace SwimSpot.Api
             }).AddJwtBearer(options =>
             {
                 options.Authority = domain;
-                options.Audience = Configuration["Auth0:Audience"];
+                options.Audience = "https://swimspot.com/api";
             });
 
 
