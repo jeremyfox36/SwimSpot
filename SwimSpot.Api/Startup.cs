@@ -26,21 +26,21 @@ namespace SwimSpot.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllersWithViews(o =>
-            //    o.Filters.Add(new AuthorizeFilter()));
+            services.AddControllersWithViews(o =>
+                o.Filters.Add(new AuthorizeFilter()));
 
-            //string domain = $"https://{Configuration["Auth0:Domain"]}/";
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(options =>
-            //{
-            //    options.Authority = domain;
-            //    options.Audience = Configuration["Auth0:Audience"];
-            //});
+            string domain = $"https://{Configuration["Auth0:Domain"]}/";
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = domain;
+                options.Audience = Configuration["Auth0:Audience"];
+            });
 
-            
+
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -67,7 +67,7 @@ namespace SwimSpot.Api
 
             app.UseRouting();
             app.UseCors();
-            // app.UseAuthentication();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
