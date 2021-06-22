@@ -26,9 +26,10 @@ namespace SwimSpot.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers(o =>
+                o.Filters.Add(new AuthorizeFilter()));
 
-            string domain = "dev - 03mn04iq.eu.auth0.com";//$"https://{Configuration["Auth0:Domain"]}/";
-
+            string domain = $"https://{Configuration["Auth0:Domain"]}/";
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -36,7 +37,7 @@ namespace SwimSpot.Api
             }).AddJwtBearer(options =>
             {
                 options.Authority = domain;
-                options.Audience = "https://swimspot.com/api";
+                options.Audience = Configuration["Auth0:Audience"];
             });
 
 
