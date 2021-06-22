@@ -67,7 +67,7 @@ namespace SwimSpot.Api
 
             app.UseRouting();
             app.UseCors();
-            app.UseAuthentication();
+            // app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
