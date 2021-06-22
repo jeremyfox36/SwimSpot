@@ -38,22 +38,9 @@ namespace SwimSpot.Api
             {
                 options.Authority = domain;
                 options.Audience = Configuration["Auth0:Audience"];
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    NameClaimType = ClaimTypes.NameIdentifier
-                };
             });
 
-            services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin();// TODO DON'T LEAVE THIS IN FOR PROD!!!
-                        builder.AllowAnyMethod();// TODO DON'T LEAVE THIS IN FOR PROD!!!
-                        builder.AllowAnyHeader();// TODO DON'T LEAVE THIS IN FOR PROD!!!
-                    });
-            });
+            
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
