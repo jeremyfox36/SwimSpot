@@ -5,11 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using SwimSpot.Shared;
 using SwimSpot.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SwimSpot.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SwimmingSpotController : ControllerBase
