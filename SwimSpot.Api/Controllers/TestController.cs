@@ -17,7 +17,7 @@ namespace SwimSpot.Api.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Got the test route");
+            return Content("Got the test route");
         }
     }
 }
