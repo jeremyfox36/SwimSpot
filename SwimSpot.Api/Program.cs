@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using SwimSpot.Api.Models;
 using Azure.Identity;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace SwimSpot.Api
 {
