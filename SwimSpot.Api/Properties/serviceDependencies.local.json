@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
     "mssql1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/swimspot-apidbserver/databases/SwimSpot.Api_db",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:DefaultConnection",
-      "secretStore": "AzureAppSettings"
+      "secretStore": "LocalSecretsFile"
     }
   }
 }
